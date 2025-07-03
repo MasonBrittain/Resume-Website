@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Edit3, Save, Download, Mail, Phone, MapPin, Linkedin } from 'lucide-react';
+import {Edit3, Save, Download, Mail, Phone, MapPin, Linkedin } from 'lucide-react';
 
 const ResumeApp = () => {
   const [isEditing, setIsEditing] = useState(false);
@@ -60,8 +60,8 @@ const ResumeApp = () => {
         institution: "University of Washington, Bothell",
         degree: "Bachelor's: Marketing | Bachelor's: Management Information Systems",
         minor: "Minor: Computer Science",
-        duration: "Jun 2020 – Sep 2025",
-        status: "In Progress"
+        duration: "Sep 2020 – Jun 2025",
+        status: "Completed"
       },
       {
         institution: "Edmonds Community College",
@@ -328,11 +328,13 @@ const ResumeApp = () => {
     }
   };
 
+  {/*Commented out Download and edit buttons feature */}
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
       <div className="max-w-4xl mx-auto px-6 py-8">
         {/* Edit Controls */}
+        {/*
         <div className="flex justify-end mb-6">
           <div className="flex gap-2">
             <button
@@ -351,6 +353,8 @@ const ResumeApp = () => {
             </button>
           </div>
         </div>
+        */}
+      
 
         {/* Profile Section */}
         <div className="text-center mb-8">
@@ -396,25 +400,25 @@ const ResumeApp = () => {
         </div>
 
         {/* Navigation Tabs */}
-        <div className="flex justify-center mb-8">
-          <nav className="flex space-x-8">
-            {tabs.map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`pb-2 text-sm font-medium transition-colors ${
-                  activeTab === tab
-                    ? 'text-gray-900 border-b-2 border-gray-900'
-                    : 'text-gray-500 hover:text-gray-700'
-                }`}
-              >
-                {tab}
-              </button>
-            ))}
-          </nav>
-        </div>
+          <div className="flex justify-center mb-8">
+            <nav className="flex space-x-8">
+              {tabs.map((tab) => (
+                <button
+            key={tab}
+            onClick={() => setActiveTab(tab)}
+            className={`pb-2 text-sm font-medium transition-colors ${
+              activeTab === tab
+                ? 'text-gray-900 border-b-2 border-gray-900'
+                : 'text-gray-500 hover:text-gray-700'
+            }`}
+                >
+            {tab}
+                </button>
+              ))}
+            </nav>
+          </div>
 
-        {/* Content Section */}
+          {/* Content Section */}
         <div className="max-w-3xl mx-auto">
           <h2 className="text-xl font-bold text-gray-900 mb-6">{activeTab}</h2>
           {renderContent()}

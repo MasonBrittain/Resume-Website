@@ -15,43 +15,51 @@ const ResumeApp = () => {
       phone: "(425) 314-6272",
       linkedin: "linkedin.com/in/mason-brittain-4a265a1aa",
       status: "Open to Work",
-      summary: "Motivated and detail-oriented developer with a strong foundation in data analytics, software development, and web technologies. Experienced in Python, SQL, C++, and Java, full-stack engineering with a passion for building efficient systems and solving real-world problems. Strong team player with management and entrepreneurial experience."
+      summary: "Motivated and detail-oriented developer with a strong foundation in data analytics, software development, and web technologies. Experienced in Python, SQL, C++, and Java, full-stack engineering with a passion for building efficient systems and solving real-world problems. Strong team player with management and entrepreneurial experience.",
+      github: "github.com/masonbrittain"
     },
     experience: [
       {
-        company: "Regal Cinebarre",
-        position: "Kitchen Operations Lead",
+        company: "Data Annotation",
+        position: "Freelance Developer",
         duration: "Jun 2022 – Present",
-        location: "Mountlake Terrace, WA",
-        logo: "https://scontent-sea1-1.xx.fbcdn.net/v/t39.30808-6/348221816_206630625559990_7306943456160076678_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=0IvY9Ezv7T4Q7kNvwFX_YF7&_nc_oc=Admsxzx0f4V9u6o7TRRxmjsdtMutoPdnS7ho51nSJJFhYEzRgdMyfpQVCguRpFL8JWoKCKThvS2zYLN8SU7lygCQ&_nc_zt=23&_nc_ht=scontent-sea1-1.xx&_nc_gid=YYYZcb2tNKgj7dt3-f5umw&oh=00_AfOgHPHeFiSTqBLr6nt_SYg0lJ6rZU0g8v77sL7zU-ZtAg&oe=686BE418",
-        description: "Oversaw operations and logistics for a high-volume kitchen team, implementing process improvements that boosted kitchen efficiency. Managed workflow optimization and team coordination in a fast-paced environment."
+        location: "Seattle, WA",
+        logo: "https://media.glassdoor.com/sqll/8605843/dataannotation-squareLogo-1741296823772.png",
+        description: "Annotated text data and provided feedback to refine model understanding of tone, intent, and accuracy. Assisted in training AI models by improving conversational quality"
       },
       {
         company: "Lowe's",
-        position: "Sales Specialist",
+        position: "Sales and Database Analyst",
         duration: "Apr 2021 – May 2022",
         location: "Lynnwood, WA",
         logo: "https://1000logos.net/wp-content/uploads/2023/03/Lowes-logo.png",
-        description: "Provided specialized sales support and customer service in a retail environment, assisting customers with product selection and ensuring a positive shopping experience."
+        description: "Collaborated across departments to optimize inventory and customer support. Enhanced sales workflows and earned 7 commendations for top-tier customer service"
+
       }
     ],
     projects: [
       {
         name: "Wacefe Database and Marketing System",
-        description: "Developed a SQL-based tracking system to support marketing campaigns for teachers and business professionals. Led website updates and strategic marketing initiatives to boost outreach.",
+        description: "Developed a SQL database and marketing system for a non-profit company in order to quantify data and improve SEO for higher engagement.  Led website updates and strategic marketing initiatives to boost outreach.",
         technologies: ["SQL", "MySQL", "Marketing Analytics", "Web Development"],
         type: "Database & Marketing"
       },
       {
-        name: "Web Development & eCommerce Platform",
-        description: "Designed, built, and optimized websites for small businesses using SEO, sales funnels, and market analysis. Managed product research, dropshipping logistics, and customer engagement for a personal e-commerce brand.",
+        name: "Web Development & eCommerce Platform freelance",
+        description: "Designed, built, and optimized websites for small businesses using SEO, sales funnels, and market analysis. Managed product research, logistics, and customer engagement for a personal e-commerce brand.",
         technologies: ["HTML/CSS", "JavaScript", "SEO", "Google Analytics", "React"],
         type: "Full-Stack Development"
+      },
+      {
+        name: "Stock Prediction Tool",
+        description: "Built a machine learning-based tool that predicts monthly S&P 500 price changes using historical market data. Utilizes a Gradient boosting model and visualizes data using matplotlib and Seaborn for insights and model performance",
+        technologies: ["Python", "Machine Learning", "Data Visualization"],
+        type: "Data Science",
       }
     ],
     skills: {
       languages: ["Python", "SQL", "Java", "C++", "HTML/CSS", "JavaScript"],
-      frameworks: ["MySQL", "Tableau", "Google Analytics", "React", "Azure", "REST APIs", "GCP"],
+      frameworks: ["MySQL", "Azure", "Google Analytics", "SEO", "React", "Azure", "REST APIs", "GCP"],
       specialties: ["Responsive Design", "eCommerce", "SEO Optimization", "Data Analytics"],
       soft: ["Problem-Solving", "Communication", "Team Leadership", "Growth Mindset"]
     },
@@ -64,10 +72,10 @@ const ResumeApp = () => {
         status: "Completed"
       },
       {
-        institution: "Edmonds Community College",
+        institution: "Edmonds Community College, Running Start Program",
         degree: "Associate of Arts Degree",
         duration: "Jun 2018 – Sep 2020",
-        status: "Running Start Program"
+        status: "Completed"
       }
     ],
     certifications: [
@@ -394,6 +402,9 @@ const ResumeApp = () => {
             </a>
             <a href={`mailto:${resumeData.personalInfo.email}`} className="text-blue-600 hover:text-blue-800 underline">
               Email
+            </a>
+            <a href={`https://${resumeData.personalInfo.github}`} className="text-blue-600 hover:text-blue-800 underline">
+              GitHub
             </a>
             <span className="text-gray-600">{resumeData.personalInfo.location}</span>
           </div>

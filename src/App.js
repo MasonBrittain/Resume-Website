@@ -33,7 +33,7 @@ const ResumeApp = () => {
         duration: "Apr 2021 – May 2022",
         location: "Lynnwood, WA",
         logo: "https://1000logos.net/wp-content/uploads/2023/03/Lowes-logo.png",
-        description: "Collaborated across departments to optimize inventory and customer support. Enhanced sales workflows and earned 7 commendations for top-tier customer service"
+        description: "Collaborated across departments to optimize inventory and support customers. Enhanced sales workflows and earned 7 commendations for top-tier customer service"
 
       }
     ],

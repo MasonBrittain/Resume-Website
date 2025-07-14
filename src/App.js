@@ -7,7 +7,6 @@ const ResumeApp = () => {
   const [resumeData, setResumeData] = useState({
     personalInfo: {
       name: "Mason Brittain",
-      // Use only the direct image URL, not HTML markup
       profileImage: "https://i.ibb.co/KxM4HBYb/638863223775179692.jpg",
       title: "Full-Stack Developer & Data Analytics Specialist",
       location: "Seattle, WA",
@@ -336,7 +335,7 @@ const ResumeApp = () => {
     }
   };
 
-  {/*Commented out Download and edit buttons feature */}
+  {/*Download and edit buttons feature(commented out) */}
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -363,7 +362,7 @@ const ResumeApp = () => {
         </div>
         */}
       
-
+        
         {/* Profile Section */}
         <div className="text-center mb-8">
           <div className="relative inline-block mb-4">

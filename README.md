@@ -2,13 +2,13 @@
 
 A sleek and modern resume website built with **React.js** and deployed using **Vercel**. This project showcases my education, experience, skills, and projects in a clean, responsive layout that's perfect for sharing with potential employers or clients.
 
-## 🌐 Live Demo
+##  Live Demo
 
-👉 [View Live Site]([(https://resume-app-roan.vercel.app/])  
+ [View Live Site]([(https://resume-app-roan.vercel.app/])  
 
 ---
 
-## 📌 Features
+##  Features
 
 - Responsive and mobile-friendly design
 - Easy to navigate layout
@@ -18,7 +18,7 @@ A sleek and modern resume website built with **React.js** and deployed using **V
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - **Frontend:** React.js, HTML5, CSS3, JavaScript (ES6+)
 - **Deployment:** Vercel
@@ -26,7 +26,7 @@ A sleek and modern resume website built with **React.js** and deployed using **V
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 To run the project locally:
 

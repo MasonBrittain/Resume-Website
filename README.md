@@ -1,37 +1,37 @@
-# 🧑‍💼 Personal Resume Website
+# Mason Brittain — Resume Website
 
-A sleek and modern resume website built with **React.js** and deployed using **Vercel**. This project showcases my education, experience, skills, and projects in a clean, responsive layout that's perfect for sharing with potential employers or clients.
+Personal portfolio and resume site for Mason Brittain, Data Engineer & Business Intelligence Consultant. A bold, colorful single-page site with a gradient design system, scroll-reveal animations, and sections for experience, projects, skills, education, and contact.
 
-##  Live Demo
+**Live site:** https://masonbrittain.com/
 
- [View Live Site]([(https://resume-app-roan.vercel.app/])  
+## Tech Stack
 
----
+- **React 19** + **Vite 7**
+- **Tailwind CSS 4** (via `@tailwindcss/vite`)
+- **lucide-react** icons
+- Deployed on **Vercel**
 
-##  Features
+## Updating Content
 
-- Responsive and mobile-friendly design
-- Easy to navigate layout
-- Sectioned content: About, Skills, Experience, Education, Projects, Contact
-- Smooth scrolling and simple animations
-- Customizable content through React components
+All resume content lives in one file: [`src/data/resume.js`](src/data/resume.js). Edit that file to update jobs, projects, skills, or contact info — no component changes needed.
 
----
-
-##  Tech Stack
-
-- **Frontend:** React.js, HTML5, CSS3, JavaScript (ES6+)
-- **Deployment:** Vercel
-- **Version Control:** Git, GitHub
-
----
-
-##  Getting Started
-
-To run the project locally:
+## Development
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
 npm install
-npm start
+npm run dev      # dev server at http://localhost:5173
+npm run build    # production build to dist/
+npm run preview  # serve the production build locally
+```
+
+## Project Structure
+
+```
+index.html              entry HTML (fonts, meta tags)
+src/
+  data/resume.js        all site content
+  components/           one component per section
+  hooks/useReveal.js    scroll-reveal animation hook
+  index.css             Tailwind theme + design system
+public/                 favicon, avatar, robots.txt
+```

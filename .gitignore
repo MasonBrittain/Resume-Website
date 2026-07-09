@@ -9,7 +9,10 @@
 /coverage
 
 # production
-/build
+/dist
+
+# vercel
+.vercel
 
 # misc
 .DS_Store

@@ -116,7 +116,7 @@ const resume = {
     {
       group: "Languages",
       accent: "violet",
-      items: ["Python", "SQL", "JavaScript", "C#", "Java", "Excel"],
+      items: ["Python", "SQL", "JavaScript", "C#", "C++", "Java", "Excel"],
     },
     {
       group: "Data & Cloud",
@@ -154,7 +154,7 @@ const resume = {
   education: [
     {
       institution: "University of Washington, Bothell",
-      degree: "B.S. Information Technology & Computer Science",
+      degree: "B.S. Computer Science & Information Technology",
       secondDegree: "B.A. Marketing Management",
       duration: "Jun 2020 – Sep 2025",
     },

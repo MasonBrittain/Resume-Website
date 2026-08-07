@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import useActiveSection from '../hooks/useActiveSection';
 
 const links = [
   { label: 'About', href: '#about' },
@@ -10,8 +11,12 @@ const links = [
   { label: 'Contact', href: '#contact' },
 ];
 
+// Module-level so the array identity stays stable across renders.
+const sectionIds = links.map((link) => link.href.slice(1));
+
 const Nav = () => {
   const [open, setOpen] = useState(false);
+  const active = useActiveSection(sectionIds);
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-zinc-200/70 bg-paper/80 backdrop-blur-md">
@@ -25,7 +30,12 @@ const Nav = () => {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-ink-soft transition-colors hover:text-ink"
+              aria-current={active === link.href.slice(1) ? 'true' : undefined}
+              className={`text-sm font-medium transition-colors ${
+                active === link.href.slice(1)
+                  ? 'gradient-text font-semibold'
+                  : 'text-ink-soft hover:text-ink'
+              }`}
             >
               {link.label}
             </a>
@@ -55,7 +65,12 @@ const Nav = () => {
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="py-2 text-sm font-medium text-ink-soft hover:text-ink"
+              aria-current={active === link.href.slice(1) ? 'true' : undefined}
+              className={`py-2 text-sm font-medium ${
+                active === link.href.slice(1)
+                  ? 'gradient-text font-semibold'
+                  : 'text-ink-soft hover:text-ink'
+              }`}
             >
               {link.label}
             </a>

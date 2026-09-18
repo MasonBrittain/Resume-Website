@@ -13,6 +13,8 @@ const resume = {
     phone: "(425) 314-6272",
     linkedin: "https://linkedin.com/in/mason-brittain-4a265a1aa",
     github: "https://github.com/MasonBrittain",
+    // Shown on the hero terminal card
+    stack: ["Python", "SQL", "Azure", "Spark", "Power BI"],
     summary: [
       "I'm a software engineer who builds the systems data runs on — distributed pipelines, automation, and the cloud infrastructure behind them. On a Vigor engagement I rebuilt legacy batch ETL on Apache Spark for a 30% processing speedup, wrote the Python automation that moved customer data off local servers into cloud storage, and consolidated three legacy databases into one. Query tuning there took reports from five minutes down to ten seconds.",
       "Alongside that I consult on analytics and BI, where I engineer SQL backends — stored procedures, views, reusable data models — and the Power BI layer on top of them, so finance and operations teams can see their business in near real time instead of waiting on a spreadsheet. On my own time I build cloud-native Azure ETL pipelines with real data-quality guarantees, plus developer tooling and full-stack side projects.",

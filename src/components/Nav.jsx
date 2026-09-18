@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import useActiveSection from '../hooks/useActiveSection';
 
@@ -16,10 +16,32 @@ const sectionIds = links.map((link) => link.href.slice(1));
 
 const Nav = () => {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const active = useActiveSection(sectionIds);
 
+  // Transparent while sitting over the dark hero, frosted paper once scrolled.
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const solid = scrolled || open;
+
+  const linkClass = (href) => {
+    if (active === href.slice(1)) return 'gradient-text font-semibold';
+    return solid ? 'text-ink-soft hover:text-ink' : 'text-white/70 hover:text-white';
+  };
+
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-zinc-200/70 bg-paper/80 backdrop-blur-md">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${
+        solid
+          ? 'border-zinc-200/70 bg-paper/80 backdrop-blur-md'
+          : 'border-transparent bg-transparent'
+      }`}
+    >
       <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
         <a href="#top" className="font-display text-lg font-bold gradient-text">
           MB
@@ -31,25 +53,21 @@ const Nav = () => {
               key={link.href}
               href={link.href}
               aria-current={active === link.href.slice(1) ? 'true' : undefined}
-              className={`text-sm font-medium transition-colors ${
-                active === link.href.slice(1)
-                  ? 'gradient-text font-semibold'
-                  : 'text-ink-soft hover:text-ink'
-              }`}
+              className={`text-sm font-medium transition-colors ${linkClass(link.href)}`}
             >
               {link.label}
             </a>
           ))}
           <a
             href="#contact"
-            className="gradient-bg rounded-full px-4 py-1.5 text-sm font-semibold text-white shadow-md transition-transform hover:-translate-y-0.5"
+            className="gradient-bg rounded-full px-4 py-1.5 text-sm font-semibold text-white shadow-lg shadow-brand-blue/30 transition-transform hover:-translate-y-0.5"
           >
             Hire me
           </a>
         </div>
 
         <button
-          className="sm:hidden"
+          className={`transition-colors sm:hidden ${solid ? 'text-ink' : 'text-white'}`}
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
           aria-expanded={open}
@@ -66,11 +84,7 @@ const Nav = () => {
               href={link.href}
               onClick={() => setOpen(false)}
               aria-current={active === link.href.slice(1) ? 'true' : undefined}
-              className={`py-2 text-sm font-medium ${
-                active === link.href.slice(1)
-                  ? 'gradient-text font-semibold'
-                  : 'text-ink-soft hover:text-ink'
-              }`}
+              className={`py-2 text-sm font-medium ${linkClass(link.href)}`}
             >
               {link.label}
             </a>

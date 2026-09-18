@@ -22,8 +22,8 @@ export default function useActiveSection(ids) {
         });
 
         // Keep document order so overlapping sections resolve to the topmost one.
-        const current = ids.find((id) => visible.has(id));
-        if (current) setActive(current);
+        // Falls back to '' so nothing stays highlighted once back up in the hero.
+        setActive(ids.find((id) => visible.has(id)) ?? '');
       },
       { rootMargin: '-20% 0px -70% 0px' }
     );

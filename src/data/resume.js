@@ -4,36 +4,46 @@
 const resume = {
   personalInfo: {
     name: "Mason Brittain",
-    title: "Data Engineer & Business Intelligence Consultant",
+    title: "Software Engineer & Business Intelligence Consultant",
     tagline:
-      "I build data pipelines and dashboards that turn raw numbers into decisions.",
-    currentRole: "Data Analyst / BI Consultant @ Raining Virtue",
+      "I like building and scaling cloud systems — the pipelines, services, and analytics that turn raw data into decisions.",
+    currentRole: "Software Engineer @ Raining Virtue",
     location: "Seattle, WA",
     email: "masonbrittain@gmail.com",
     phone: "(425) 314-6272",
     linkedin: "https://linkedin.com/in/mason-brittain-4a265a1aa",
     github: "https://github.com/MasonBrittain",
     summary: [
-      "I'm a data engineer and BI consultant who likes turning messy operational data into pipelines and dashboards people actually use. At Raining Virtue, I build Power BI reporting on SQL Server and ERP data that lets finance and operations teams see their business clearly — and on my own time I architect cloud-native Azure ETL pipelines with real data-quality guarantees.",
-      "I recently graduated from the University of Washington with dual bachelor's degrees in Information Technology & Computer Science and Marketing Management, so I'm most at home at the intersection of the data and the business decisions it drives.",
+      "I'm a software engineer who builds the systems data runs on — distributed pipelines, automation, and the cloud infrastructure behind them. On a Vigor engagement I rebuilt legacy batch ETL on Apache Spark for a 30% processing speedup, wrote the Python automation that moved customer data off local servers into cloud storage, and consolidated three legacy databases into one. Query tuning there took reports from five minutes down to ten seconds.",
+      "Alongside that I consult on analytics and BI, where I engineer SQL backends — stored procedures, views, reusable data models — and the Power BI layer on top of them, so finance and operations teams can see their business in near real time instead of waiting on a spreadsheet. On my own time I build cloud-native Azure ETL pipelines with real data-quality guarantees, plus developer tooling and full-stack side projects.",
+      "I graduated from the University of Washington with dual bachelor's degrees in Computer Science & Information Technology and Marketing Management, so I'm most at home where the engineering meets the decisions it drives.",
     ],
   },
 
   experience: [
     {
       company: "Raining Virtue",
-      position: "Data Analyst / Business Intelligence Consultant",
+      position: "Data Engineer / Business Intelligence Consultant",
       duration: "Feb 2026 – Present",
       location: "Seattle, WA",
       current: true,
       engagements: [
         {
-          client: "Thompson Metal Fab",
+          client: "Vigor — Data Engineer",
           bullets: [
-            "Designed and developed Power BI dashboards using SQL Server, Vista ERP, and DAX, enabling finance and operations teams to monitor business performance through centralized reporting.",
-            "Engineered SQL views, stored procedures, and reusable datasets that transformed ERP data into scalable analytics solutions and improved reporting consistency.",
-            "Migrated complex Excel-based WIP reporting into Power BI by translating business logic into DAX, reducing manual reporting effort and improving maintainability.",
-            "Developed SSIS execution monitoring dashboards that tracked refresh durations, failures, and execution trends, improving data pipeline visibility.",
+            "30% faster data processing: redesigned legacy batch ETL pipelines using Apache Spark.",
+            "5 hours/week saved: built an automated Python script to migrate customer data from local servers to cloud storage, replacing a manual process.",
+            "3 legacy databases consolidated into 1 central database, reducing redundancy and simplifying data management.",
+            "Optimized inefficient SQL queries, cutting report load times from 5 minutes to 10 seconds.",
+          ],
+        },
+        {
+          client: "Thompson Metal Fab — Analytics/BI",
+          bullets: [
+            "Engineered SQL-based backend reporting solutions — stored procedures, views, and reusable data models — and optimized queries with automated data integration, reducing manual data preparation time by 50% and improving report delivery to near real-time.",
+            "80% faster report generation, 300+ staff hours saved annually: automated reporting workflows by replacing manual Excel processes with SQL and Power BI solutions.",
+            "7 Power BI dashboards and data pipelines built and maintained across finance and project management departments, reducing manual reporting effort by 40%.",
+            "50% faster troubleshooting: developed an SSIS execution monitoring dashboard that cut production issue resolution time.",
           ],
         },
         {
@@ -126,6 +136,7 @@ const resume = {
         "Azure SQL",
         "Azure Functions",
         "Azure Blob Storage",
+        "Apache Spark",
         "SQL Server",
         "Power BI",
         "DAX",

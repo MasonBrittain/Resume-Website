@@ -5,7 +5,7 @@ import resume from '../data/resume';
 const { personalInfo } = resume;
 
 const facts = [
-  { icon: Database, label: 'Data Engineering & BI' },
+  { icon: Database, label: 'Software & Data Engineering' },
   { icon: GraduationCap, label: 'Dual B.S./B.A. — UW' },
   { icon: Award, label: 'Google Analytics Certified' },
   { icon: MapPin, label: 'Seattle, WA' },

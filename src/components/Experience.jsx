@@ -21,7 +21,9 @@ const Experience = () => (
               {job.duration}
             </span>
           </div>
-          <p className="mt-1 text-sm text-ink-soft">{job.location}</p>
+          {job.location && (
+            <p className="mt-1 text-sm text-ink-soft">{job.location}</p>
+          )}
 
           {job.engagements ? (
             <div className="mt-4 space-y-5">

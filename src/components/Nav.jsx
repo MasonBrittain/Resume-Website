@@ -38,7 +38,7 @@ const Nav = () => {
     <header
       className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${
         solid
-          ? 'border-zinc-200/70 bg-paper/80 backdrop-blur-md'
+          ? 'border-stone-200/70 bg-paper/80 backdrop-blur-md'
           : 'border-transparent bg-transparent'
       }`}
     >
@@ -60,7 +60,7 @@ const Nav = () => {
           ))}
           <a
             href="#contact"
-            className="gradient-bg rounded-full px-4 py-1.5 text-sm font-semibold text-white shadow-lg shadow-brand-blue/30 transition-transform hover:-translate-y-0.5"
+            className="gradient-bg rounded-full px-4 py-1.5 text-sm font-semibold text-white shadow-lg shadow-brand-orange/30 transition-transform hover:-translate-y-0.5"
           >
             Hire me
           </a>
@@ -77,7 +77,7 @@ const Nav = () => {
       </nav>
 
       {open && (
-        <div className="flex flex-col gap-1 border-t border-zinc-200/70 bg-paper px-6 py-4 sm:hidden">
+        <div className="flex flex-col gap-1 border-t border-stone-200/70 bg-paper px-6 py-4 sm:hidden">
           {links.map((link) => (
             <a
               key={link.href}

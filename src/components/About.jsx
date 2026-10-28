@@ -31,7 +31,7 @@ const About = () => (
             style={{ '--n': i + 1 }}
             className="flex items-center gap-3 px-4 py-3 text-sm font-medium"
           >
-            <span className="gradient-bg flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-white shadow-md shadow-brand-blue/30">
+            <span className="gradient-bg flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-white shadow-md shadow-brand-orange/30">
               <Icon size={16} />
             </span>
             {label}

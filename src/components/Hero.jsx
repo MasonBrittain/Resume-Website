@@ -22,13 +22,13 @@ const Hero = () => (
     {/* Backdrop: line grid fading out at the edges, plus three drifting glow orbs */}
     <div aria-hidden="true" className="pointer-events-none absolute inset-0">
       <div className="bg-grid absolute inset-0 mask-[radial-gradient(ellipse_70%_60%_at_50%_40%,black,transparent)]" />
-      <div className="animate-float absolute -top-32 -left-24 h-[28rem] w-[28rem] rounded-full bg-brand-violet/40 blur-3xl" />
+      <div className="animate-float absolute -top-32 -left-24 h-[28rem] w-[28rem] rounded-full bg-brand-rose/40 blur-3xl" />
       <div
-        className="animate-float absolute top-1/3 -right-32 h-[30rem] w-[30rem] rounded-full bg-brand-blue/30 blur-3xl"
+        className="animate-float absolute top-1/3 -right-32 h-[30rem] w-[30rem] rounded-full bg-brand-orange/30 blur-3xl"
         style={{ animationDuration: '9s', animationDelay: '-3s' }}
       />
       <div
-        className="animate-float absolute -bottom-40 left-1/3 h-[24rem] w-[24rem] rounded-full bg-brand-cyan/25 blur-3xl"
+        className="animate-float absolute -bottom-40 left-1/3 h-[24rem] w-[24rem] rounded-full bg-brand-amber/25 blur-3xl"
         style={{ animationDuration: '11s', animationDelay: '-6s' }}
       />
     </div>
@@ -78,7 +78,7 @@ const Hero = () => (
         >
           <a
             href="#projects"
-            className="gradient-bg rounded-full px-6 py-3 font-semibold text-white shadow-lg shadow-brand-blue/40 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand-violet/40"
+            className="gradient-bg rounded-full px-6 py-3 font-semibold text-white shadow-lg shadow-brand-orange/40 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand-rose/40"
           >
             View Projects
           </a>
@@ -114,7 +114,7 @@ const Hero = () => (
       <div className="rise relative mx-auto w-full max-w-md lg:max-w-none" style={{ '--n': 3 }}>
         <div
           aria-hidden="true"
-          className="absolute -inset-3 rounded-3xl bg-linear-to-br from-brand-violet/40 via-brand-blue/25 to-brand-cyan/40 blur-2xl"
+          className="absolute -inset-3 rounded-3xl bg-linear-to-br from-brand-rose/40 via-brand-orange/25 to-brand-amber/40 blur-2xl"
         />
         <div className="relative rounded-2xl border border-white/10 bg-white/5 p-1.5 shadow-2xl backdrop-blur-xl">
           <div className="flex items-center gap-1.5 px-3 py-2">
@@ -127,14 +127,14 @@ const Hero = () => (
             {terminalLines.map(({ cmd, out }) => (
               <div key={cmd}>
                 <p>
-                  <span className="text-brand-cyan">$</span>{' '}
+                  <span className="text-brand-amber">$</span>{' '}
                   <span className="text-white/90">{cmd}</span>
                 </p>
                 <p className="text-white/60">{out}</p>
               </div>
             ))}
             <p>
-              <span className="text-brand-cyan">$</span>{' '}
+              <span className="text-brand-amber">$</span>{' '}
               <span className="animate-blink text-white/80">▍</span>
             </p>
           </div>

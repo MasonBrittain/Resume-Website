@@ -9,10 +9,10 @@ const Education = () => (
       {resume.education.map((edu, i) => (
         <Card key={edu.institution} style={{ '--n': i }} className="p-6">
           <div className="flex items-start justify-between gap-4">
-            <span className="gradient-bg flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-white shadow-md shadow-brand-blue/30">
+            <span className="gradient-bg flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-white shadow-md shadow-brand-orange/30">
               <GraduationCap size={22} />
             </span>
-            <span className="rounded-full border border-zinc-200 bg-white px-3 py-1 font-mono text-[11px] font-medium text-ink-soft">
+            <span className="rounded-full border border-stone-200 bg-white px-3 py-1 font-mono text-[11px] font-medium text-ink-soft">
               {edu.duration}
             </span>
           </div>

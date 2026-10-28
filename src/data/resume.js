@@ -18,7 +18,7 @@ const resume = {
     summary: [
       "I'm a software engineer who builds the systems data runs on — distributed pipelines, automation, and the cloud infrastructure behind them. On a Vigor engagement I rebuilt legacy batch ETL on Apache Spark for a 30% processing speedup, wrote the Python automation that moved customer data off local servers into cloud storage, and consolidated three legacy databases into one. Query tuning there took reports from five minutes down to ten seconds.",
       "Alongside that I consult on analytics and BI, where I engineer SQL backends — stored procedures, views, reusable data models — and the Power BI layer on top of them, so finance and operations teams can see their business in near real time instead of waiting on a spreadsheet. On my own time I build cloud-native Azure ETL pipelines with real data-quality guarantees, plus developer tooling and full-stack side projects.",
-      "I graduated from the University of Washington with dual bachelor's degrees in Computer Science & Information Technology and Marketing Management, so I'm most at home where the engineering meets the decisions it drives.",
+      "I graduated from the University of Washington with dual bachelor's degrees in Computer Science & Software Engineering and Marketing Management, so I'm most at home where the engineering meets the decisions it drives.",
     ],
   },
 
@@ -91,6 +91,14 @@ const resume = {
       github: "https://github.com/MasonBrittain/Stock-Market-ETL-Pipeline",
     },
     {
+      name: "Autonomous Market Research Analyst",
+      description:
+        "Multi-agent research system: give it a company, ticker, or industry and it gathers evidence from SEC EDGAR filings, news feeds, and market data, builds a cited analytical brief — SWOT, risk cross-reference, catalysts — then red-teams its own conclusions, with an adversary agent rejecting or revising any claim the evidence doesn't support. Every published claim footnotes the verbatim source quote, and an eval harness tracks quote integrity, rejection rate, and cost per run.",
+      technologies: ["Python", "Claude API", "FastAPI", "Pydantic", "Jinja2", "Docker"],
+      type: "AI Agents",
+      github: "https://github.com/MasonBrittain/Autonomous-Market-Research-Analyst",
+    },
+    {
       name: "AI Code Review Tool",
       duration: "Sep 2025 – Present",
       description:
@@ -127,12 +135,12 @@ const resume = {
   skills: [
     {
       group: "Languages",
-      accent: "violet",
+      accent: "rose",
       items: ["Python", "SQL", "JavaScript", "C#", "C++", "Java", "Excel"],
     },
     {
       group: "Data & Cloud",
-      accent: "blue",
+      accent: "orange",
       items: [
         "Azure",
         "Azure SQL",
@@ -151,7 +159,7 @@ const resume = {
     },
     {
       group: "Tools",
-      accent: "cyan",
+      accent: "amber",
       items: ["Git", "GitHub Actions", "Docker", "pytest", "Azure CLI", "Jira"],
     },
   ],
@@ -166,8 +174,8 @@ const resume = {
 
   education: [
     {
-      institution: "University of Washington, Bothell",
-      degree: "B.S. Computer Science & Information Technology",
+      institution: "University of Washington",
+      degree: "B.S. Computer Science & Software Engineering",
       secondDegree: "B.A. Marketing Management",
       duration: "Jun 2020 – Sep 2025",
     },

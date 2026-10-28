@@ -11,14 +11,14 @@ const Contact = () => {
     <section id="contact" className="px-6 py-24">
       <div
         ref={ref}
-        className="reveal relative mx-auto max-w-5xl overflow-hidden rounded-3xl bg-night px-8 py-16 text-center text-white shadow-2xl shadow-brand-blue/20 ring-1 ring-white/10 sm:px-14 sm:py-20"
+        className="reveal relative mx-auto max-w-5xl overflow-hidden rounded-3xl bg-night px-8 py-16 text-center text-white shadow-2xl shadow-brand-orange/20 ring-1 ring-white/10 sm:px-14 sm:py-20"
       >
         {/* Same dark stage as the hero: grid + glow orbs */}
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           <div className="bg-grid absolute inset-0 mask-[radial-gradient(ellipse_60%_80%_at_50%_50%,black,transparent)]" />
-          <div className="animate-float absolute -top-24 -left-16 h-72 w-72 rounded-full bg-brand-violet/40 blur-3xl" />
+          <div className="animate-float absolute -top-24 -left-16 h-72 w-72 rounded-full bg-brand-rose/40 blur-3xl" />
           <div
-            className="animate-float absolute -right-16 -bottom-24 h-72 w-72 rounded-full bg-brand-cyan/30 blur-3xl"
+            className="animate-float absolute -right-16 -bottom-24 h-72 w-72 rounded-full bg-brand-amber/30 blur-3xl"
             style={{ animationDuration: '10s', animationDelay: '-4s' }}
           />
         </div>
@@ -35,7 +35,7 @@ const Contact = () => {
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
             <a
               href={`mailto:${personalInfo.email}`}
-              className="gradient-bg flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-white shadow-lg shadow-brand-blue/40 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand-violet/40"
+              className="gradient-bg flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-white shadow-lg shadow-brand-orange/40 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand-rose/40"
             >
               <Mail size={18} /> {personalInfo.email}
             </a>

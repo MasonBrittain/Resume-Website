@@ -9,17 +9,17 @@ const ProjectCard = ({ project, index }) => (
     style={{ '--n': index }}
     className={`group flex flex-col p-6 ${
       project.featured
-        ? 'card-featured bg-linear-to-br from-white to-brand-violet/5 md:col-span-2 md:p-8'
+        ? 'card-featured bg-linear-to-br from-white to-brand-rose/5 md:col-span-2 md:p-8'
         : ''
     }`}
   >
     <div className="flex flex-wrap items-center justify-between gap-2">
-      <span className="gradient-bg rounded-full px-3 py-1 text-xs font-semibold text-white shadow-md shadow-brand-blue/20">
+      <span className="gradient-bg rounded-full px-3 py-1 text-xs font-semibold text-white shadow-md shadow-brand-orange/20">
         {project.type}
       </span>
       <div className="flex items-center gap-3">
         {project.featured && (
-          <span className="flex items-center gap-1 text-xs font-semibold text-brand-violet">
+          <span className="flex items-center gap-1 text-xs font-semibold text-brand-rose">
             <Star size={14} className="fill-current" /> Featured
           </span>
         )}
@@ -32,7 +32,7 @@ const ProjectCard = ({ project, index }) => (
     </div>
 
     <h3
-      className={`mt-4 font-display font-bold text-ink transition-colors group-hover:text-brand-blue ${
+      className={`mt-4 font-display font-bold text-ink transition-colors group-hover:text-brand-orange ${
         project.featured ? 'text-2xl' : 'text-xl'
       }`}
     >
@@ -47,7 +47,7 @@ const ProjectCard = ({ project, index }) => (
       {project.technologies.map((tech) => (
         <span
           key={tech}
-          className="rounded-md border border-zinc-200 bg-zinc-50 px-2 py-1 font-mono text-[11px] font-medium text-ink-soft"
+          className="rounded-md border border-stone-200 bg-stone-50 px-2 py-1 font-mono text-[11px] font-medium text-ink-soft"
         >
           {tech}
         </span>
@@ -59,7 +59,7 @@ const ProjectCard = ({ project, index }) => (
         href={project.github}
         target="_blank"
         rel="noreferrer"
-        className="mt-5 inline-flex w-fit items-center gap-2 text-sm font-semibold text-ink transition-colors hover:text-brand-violet"
+        className="mt-5 inline-flex w-fit items-center gap-2 text-sm font-semibold text-ink transition-colors hover:text-brand-rose"
       >
         <Github size={16} /> View on GitHub
         <ArrowUpRight

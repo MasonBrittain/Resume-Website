@@ -4,10 +4,10 @@ import Card from './Card';
 import resume from '../data/resume';
 
 const accentStyles = {
-  violet:
-    'bg-brand-violet/10 text-brand-violet hover:bg-brand-violet hover:text-white hover:shadow-lg hover:shadow-brand-violet/30',
-  blue: 'bg-brand-blue/10 text-brand-blue hover:bg-brand-blue hover:text-white hover:shadow-lg hover:shadow-brand-blue/30',
-  cyan: 'bg-brand-cyan/10 text-brand-cyan hover:bg-brand-cyan hover:text-white hover:shadow-lg hover:shadow-brand-cyan/30',
+  rose: 'bg-brand-rose/10 text-rose-700 hover:bg-brand-rose hover:text-white hover:shadow-lg hover:shadow-brand-rose/30',
+  orange:
+    'bg-brand-orange/10 text-orange-700 hover:bg-brand-orange hover:text-white hover:shadow-lg hover:shadow-brand-orange/30',
+  amber: 'bg-brand-amber/10 text-amber-700 hover:bg-brand-amber hover:text-white hover:shadow-lg hover:shadow-brand-amber/30',
 };
 
 const groupIcons = {
@@ -26,7 +26,7 @@ const Skills = () => (
             <Card key={group.group} style={{ '--n': i }} className="p-6">
               <div className="flex items-center justify-between gap-3">
                 <div className="flex items-center gap-3">
-                  <span className="gradient-bg flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-white shadow-md shadow-brand-blue/30">
+                  <span className="gradient-bg flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-white shadow-md shadow-brand-orange/30">
                     <Icon size={18} />
                   </span>
                   <h3 className="font-display text-lg font-semibold text-ink">
@@ -59,7 +59,7 @@ const Skills = () => (
         <div className="flex flex-wrap gap-3">
           {resume.certifications.map((cert) => (
             <Card key={cert.name} className="flex items-center gap-3 px-4 py-3">
-              <BadgeCheck className="text-brand-blue" size={20} />
+              <BadgeCheck className="text-brand-orange" size={20} />
               <div>
                 <p className="text-sm font-semibold text-ink">{cert.name}</p>
                 <p className="text-xs text-ink-soft">

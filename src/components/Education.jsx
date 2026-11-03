@@ -4,15 +4,15 @@ import Card from './Card';
 import resume from '../data/resume';
 
 const Education = () => (
-  <Section id="education" kicker="Education" title="Where I studied">
-    <div className="stagger grid gap-6 md:grid-cols-2">
-      {resume.education.map((edu, i) => (
-        <Card key={edu.institution} style={{ '--n': i }} className="p-6">
+  <Section id="education" title="Where I studied">
+    <div className="grid gap-6 md:grid-cols-2">
+      {resume.education.map((edu) => (
+        <Card key={edu.institution} className="p-6">
           <div className="flex items-start justify-between gap-4">
-            <span className="gradient-bg flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-white shadow-md shadow-brand-orange/30">
-              <GraduationCap size={22} />
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-stone-100 text-brand-orange-deep">
+              <GraduationCap size={22} aria-hidden="true" />
             </span>
-            <span className="rounded-full border border-stone-200 bg-white px-3 py-1 font-mono text-[11px] font-medium text-ink-soft">
+            <span className="rounded-full border border-stone-200 bg-white px-3 py-1 font-mono text-xs font-medium text-ink-soft">
               {edu.duration}
             </span>
           </div>

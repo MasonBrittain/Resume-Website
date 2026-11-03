@@ -3,28 +3,28 @@ import Section from './Section';
 import Card from './Card';
 import resume from '../data/resume';
 
-const ProjectCard = ({ project, index }) => (
+// A card with a repo is one big link (the "View on GitHub" link stretches over
+// it), so its hover lift is honest. Cards without a repo stay still.
+const ProjectCard = ({ project, wide }) => (
   <Card
     as="article"
-    style={{ '--n': index }}
-    className={`group flex flex-col p-6 ${
-      project.featured
-        ? 'card-featured bg-linear-to-br from-white to-brand-rose/5 md:col-span-2 md:p-8'
-        : ''
+    interactive={Boolean(project.github)}
+    className={`group flex flex-col p-6 ${project.featured ? 'md:p-8' : ''} ${
+      wide ? 'md:col-span-2' : ''
     }`}
   >
     <div className="flex flex-wrap items-center justify-between gap-2">
-      <span className="gradient-bg rounded-full px-3 py-1 text-xs font-semibold text-white shadow-md shadow-brand-orange/20">
+      <span className="rounded-full bg-brand-orange/10 px-3 py-1 text-xs font-semibold text-brand-orange-deep">
         {project.type}
       </span>
       <div className="flex items-center gap-3">
         {project.featured && (
-          <span className="flex items-center gap-1 text-xs font-semibold text-brand-rose">
-            <Star size={14} className="fill-current" /> Featured
+          <span className="flex items-center gap-1 text-xs font-semibold text-rose-700">
+            <Star size={14} className="fill-current" aria-hidden="true" /> Featured
           </span>
         )}
         {project.duration && (
-          <span className="font-mono text-[11px] font-medium text-ink-soft">
+          <span className="font-mono text-xs font-medium text-ink-soft">
             {project.duration}
           </span>
         )}
@@ -32,38 +32,40 @@ const ProjectCard = ({ project, index }) => (
     </div>
 
     <h3
-      className={`mt-4 font-display font-bold text-ink transition-colors group-hover:text-brand-orange ${
-        project.featured ? 'text-2xl' : 'text-xl'
-      }`}
+      className={`mt-4 font-display font-bold text-ink ${
+        project.github ? 'transition-colors group-hover:text-brand-orange-deep' : ''
+      } ${project.featured ? 'text-2xl' : 'text-xl'}`}
     >
       {project.name}
     </h3>
 
-    <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-soft">
+    <p className="mt-2 max-w-[62ch] flex-1 text-sm leading-relaxed text-ink-soft">
       {project.description}
     </p>
 
-    <div className="mt-5 flex flex-wrap items-center gap-2">
+    <ul className="mt-5 flex flex-wrap items-center gap-2" aria-label="Technologies">
       {project.technologies.map((tech) => (
-        <span
+        <li
           key={tech}
-          className="rounded-md border border-stone-200 bg-stone-50 px-2 py-1 font-mono text-[11px] font-medium text-ink-soft"
+          className="rounded-md border border-stone-200 bg-stone-50 px-2 py-1 font-mono text-xs font-medium text-ink-soft"
         >
           {tech}
-        </span>
+        </li>
       ))}
-    </div>
+    </ul>
 
     {project.github && (
       <a
         href={project.github}
         target="_blank"
         rel="noreferrer"
-        className="mt-5 inline-flex w-fit items-center gap-2 text-sm font-semibold text-ink transition-colors hover:text-brand-rose"
+        className="mt-5 inline-flex w-fit items-center gap-2 text-sm font-semibold text-ink after:absolute after:inset-0 after:rounded-2xl"
       >
-        <Github size={16} /> View on GitHub
+        <Github size={16} aria-hidden="true" /> View on GitHub
+        <span className="sr-only">: {project.name}</span>
         <ArrowUpRight
           size={14}
+          aria-hidden="true"
           className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
         />
       </a>
@@ -71,14 +73,25 @@ const ProjectCard = ({ project, index }) => (
   </Card>
 );
 
-const Projects = () => (
-  <Section id="projects" kicker="Projects" title="Things I've built">
-    <div className="stagger grid gap-6 md:grid-cols-2">
-      {resume.projects.map((project, i) => (
-        <ProjectCard key={project.name} project={project} index={i} />
-      ))}
-    </div>
-  </Section>
-);
+const Projects = () => {
+  const rest = resume.projects.filter((project) => !project.featured);
+  // With an odd number of regular cards, the last one takes the whole row
+  // instead of sitting next to an empty cell.
+  const lastOdd = rest.length % 2 === 1 ? rest[rest.length - 1] : null;
+
+  return (
+    <Section id="projects" title="Things I've built">
+      <div className="grid gap-6 md:grid-cols-2">
+        {resume.projects.map((project) => (
+          <ProjectCard
+            key={project.name}
+            project={project}
+            wide={project.featured || project === lastOdd}
+          />
+        ))}
+      </div>
+    </Section>
+  );
+};
 
 export default Projects;

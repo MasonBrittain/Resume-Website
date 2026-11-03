@@ -4,10 +4,10 @@
 const resume = {
   personalInfo: {
     name: "Mason Brittain",
-    title: "Software Engineer & Business Intelligence Consultant",
+    title: "Software Engineer",
     tagline:
       "I like building and scaling cloud systems — the pipelines, services, and analytics that turn raw data into decisions.",
-    currentRole: "Software Engineer @ Raining Virtue",
+    currentRole: "Data Engineer @ Raining Virtue",
     location: "Seattle, WA",
     email: "masonbrittain@gmail.com",
     phone: "(425) 314-6272",
@@ -25,7 +25,7 @@ const resume = {
   experience: [
     {
       company: "Raining Virtue",
-      position: "Data Engineer / Business Intelligence Consultant",
+      position: "Data Engineer",
       duration: "Feb 2026 – Present",
       location: "Seattle, WA",
       current: true,
@@ -136,7 +136,7 @@ const resume = {
     {
       group: "Languages",
       accent: "rose",
-      items: ["Python", "SQL", "JavaScript", "C#", "C++", "Java", "Excel"],
+      items: ["Python", "SQL", "JavaScript", "C#", "C++", "Java"],
     },
     {
       group: "Data & Cloud",
@@ -160,7 +160,7 @@ const resume = {
     {
       group: "Tools",
       accent: "amber",
-      items: ["Git", "GitHub Actions", "Docker", "pytest", "Azure CLI", "Jira"],
+      items: ["Git", "GitHub Actions", "Docker", "pytest", "Azure CLI", "Jira", "Excel"],
     },
   ],
 

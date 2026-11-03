@@ -13,26 +13,19 @@ const facts = [
 ];
 
 const About = () => (
-  <Section id="about" kicker="About" title="A little about me">
+  <Section id="about" title="A little about me">
     <div className="grid gap-10 md:grid-cols-[2fr_1fr]">
-      <div className="stagger space-y-5 text-lg leading-relaxed text-ink-soft">
+      <div className="max-w-[68ch] space-y-5 text-lg leading-relaxed text-ink-soft">
         {personalInfo.summary.map((paragraph, i) => (
-          <p key={i} style={{ '--n': i }}>
-            {paragraph}
-          </p>
+          <p key={i}>{paragraph}</p>
         ))}
       </div>
 
-      <ul className="stagger space-y-3 self-start">
-        {facts.map(({ icon: Icon, label }, i) => (
-          <Card
-            as="li"
-            key={label}
-            style={{ '--n': i + 1 }}
-            className="flex items-center gap-3 px-4 py-3 text-sm font-medium"
-          >
-            <span className="gradient-bg flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-white shadow-md shadow-brand-orange/30">
-              <Icon size={16} />
+      <ul className="space-y-3 self-start">
+        {facts.map(({ icon: Icon, label }) => (
+          <Card as="li" key={label} className="flex items-center gap-3 px-4 py-3 text-sm font-medium">
+            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-stone-100 text-brand-orange-deep">
+              <Icon size={16} aria-hidden="true" />
             </span>
             {label}
           </Card>

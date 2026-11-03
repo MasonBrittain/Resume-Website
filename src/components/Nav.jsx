@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { Mail, Menu, X } from 'lucide-react';
 import useActiveSection from '../hooks/useActiveSection';
+import resume from '../data/resume';
 
 const links = [
   { label: 'About', href: '#about' },
@@ -14,10 +15,13 @@ const links = [
 // Module-level so the array identity stays stable across renders.
 const sectionIds = links.map((link) => link.href.slice(1));
 
+const mailto = `mailto:${resume.personalInfo.email}`;
+
 const Nav = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const active = useActiveSection(sectionIds);
+  const toggleRef = useRef(null);
 
   // Transparent while sitting over the dark hero, frosted paper once scrolled.
   useEffect(() => {
@@ -27,23 +31,49 @@ const Nav = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // While the mobile menu is open, Escape or a real scroll closes it.
+  useEffect(() => {
+    if (!open) return;
+    const openedAt = window.scrollY;
+    const onKey = (e) => {
+      if (e.key === 'Escape') {
+        setOpen(false);
+        toggleRef.current?.focus();
+      }
+    };
+    const onScroll = () => {
+      if (Math.abs(window.scrollY - openedAt) > 48) setOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, [open]);
+
   const solid = scrolled || open;
 
   const linkClass = (href) => {
-    if (active === href.slice(1)) return 'gradient-text font-semibold';
+    if (active === href.slice(1)) {
+      return solid ? 'font-semibold text-brand-orange-deep' : 'font-semibold text-white';
+    }
     return solid ? 'text-ink-soft hover:text-ink' : 'text-white/70 hover:text-white';
   };
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-200 ease-out ${
         solid
           ? 'border-stone-200/70 bg-paper/80 backdrop-blur-md'
           : 'border-transparent bg-transparent'
       }`}
     >
-      <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-        <a href="#top" className="font-display text-lg font-bold gradient-text">
+      <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-3">
+        <a
+          href="#top"
+          className={`font-display text-lg font-bold transition-colors ${solid ? 'text-ink' : 'text-white'}`}
+        >
           MB
         </a>
 
@@ -59,38 +89,55 @@ const Nav = () => {
             </a>
           ))}
           <a
-            href="#contact"
-            className="gradient-bg rounded-full px-4 py-1.5 text-sm font-semibold text-white shadow-lg shadow-brand-orange/30 transition-transform hover:-translate-y-0.5"
+            href={mailto}
+            className="press gradient-bg inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold text-white hover:brightness-110"
           >
-            Hire me
+            <Mail size={15} aria-hidden="true" /> Email me
           </a>
         </div>
 
         <button
-          className={`transition-colors sm:hidden ${solid ? 'text-ink' : 'text-white'}`}
+          ref={toggleRef}
+          className={`press -mr-2.5 inline-flex h-11 w-11 items-center justify-center rounded-full sm:hidden ${
+            solid ? 'text-ink' : 'text-white'
+          }`}
           onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
+          aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
+          aria-controls="mobile-menu"
         >
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </nav>
 
-      {open && (
-        <div className="flex flex-col gap-1 border-t border-stone-200/70 bg-paper px-6 py-4 sm:hidden">
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setOpen(false)}
-              aria-current={active === link.href.slice(1) ? 'true' : undefined}
-              className={`py-2 text-sm font-medium ${linkClass(link.href)}`}
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
-      )}
+      {/* Always mounted so it can animate both ways: drops in from under the
+          bar on open, leaves faster on close. `invisible` takes the closed
+          menu out of the tab order and the accessibility tree. */}
+      <div
+        id="mobile-menu"
+        className={`absolute inset-x-0 top-full flex flex-col border-b border-stone-200/70 bg-paper px-6 pt-2 pb-5 shadow-lg shadow-stone-900/5 transition-[opacity,translate,visibility] ease-out motion-reduce:translate-y-0 sm:hidden ${
+          open ? 'visible translate-y-0 opacity-100 duration-200' : 'invisible -translate-y-2 opacity-0 duration-150'
+        }`}
+      >
+        {links.map((link) => (
+          <a
+            key={link.href}
+            href={link.href}
+            onClick={() => setOpen(false)}
+            aria-current={active === link.href.slice(1) ? 'true' : undefined}
+            className={`py-3 text-base font-medium ${linkClass(link.href)}`}
+          >
+            {link.label}
+          </a>
+        ))}
+        <a
+          href={mailto}
+          onClick={() => setOpen(false)}
+          className="press gradient-bg mt-3 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 font-semibold text-white"
+        >
+          <Mail size={18} aria-hidden="true" /> Email me
+        </a>
+      </div>
     </header>
   );
 };

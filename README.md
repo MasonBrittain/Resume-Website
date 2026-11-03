@@ -1,6 +1,6 @@
 # Mason Brittain — Resume Website
 
-Personal portfolio and resume site for Mason Brittain, Data Engineer & Business Intelligence Consultant. A bold, colorful single-page site with a gradient design system, scroll-reveal animations, and sections for experience, projects, skills, education, and contact.
+Personal portfolio and resume site for Mason Brittain, Software Engineer. A bold, colorful single-page site with a warm gradient palette and sections for experience, projects, skills, education, and contact.
 
 **Live site:** https://masonbrittain.com/
 
@@ -31,7 +31,7 @@ index.html              entry HTML (fonts, meta tags)
 src/
   data/resume.js        all site content
   components/           one component per section
-  hooks/useReveal.js    scroll-reveal animation hook
+  hooks/                scroll-spy and other small hooks
   index.css             Tailwind theme + design system
 public/                 favicon, avatar, robots.txt
 ```

@@ -20,12 +20,18 @@ const mailto = `mailto:${resume.personalInfo.email}`;
 const Nav = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [pastHero, setPastHero] = useState(false);
   const active = useActiveSection(sectionIds);
   const toggleRef = useRef(null);
 
   // Transparent while sitting over the dark hero, frosted paper once scrolled.
+  // pastHero flips once the hero (and its own "Email me" button) is out of view.
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const hero = document.getElementById('top');
+    const onScroll = () => {
+      setScrolled(window.scrollY > 24);
+      setPastHero(hero ? window.scrollY > hero.offsetHeight - 80 : true);
+    };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -83,14 +89,22 @@ const Nav = () => {
               key={link.href}
               href={link.href}
               aria-current={active === link.href.slice(1) ? 'true' : undefined}
-              className={`text-sm font-medium transition-colors ${linkClass(link.href)}`}
+              className={`py-2 text-sm font-medium transition-colors ${linkClass(link.href)}`}
             >
               {link.label}
             </a>
           ))}
+          {/* Outlined while the hero's own "Email me" is on screen, so there is one
+              primary button at a time; solid once the page scrolls past it */}
           <a
             href={mailto}
-            className="press gradient-bg inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold text-white hover:brightness-110"
+            className={`press inline-flex items-center gap-1.5 rounded-full border px-4 py-2 text-sm font-semibold ${
+              pastHero
+                ? 'gradient-bg border-transparent text-white hover:brightness-110'
+                : solid
+                  ? 'border-stone-300 text-ink hover:border-stone-400 hover:bg-stone-100'
+                  : 'border-white/30 bg-white/5 text-white hover:border-white/50 hover:bg-white/10'
+            }`}
           >
             <Mail size={15} aria-hidden="true" /> Email me
           </a>
@@ -115,7 +129,7 @@ const Nav = () => {
           menu out of the tab order and the accessibility tree. */}
       <div
         id="mobile-menu"
-        className={`absolute inset-x-0 top-full flex flex-col border-b border-stone-200/70 bg-paper px-6 pt-2 pb-5 shadow-lg shadow-stone-900/5 transition-[opacity,translate,visibility] ease-out motion-reduce:translate-y-0 sm:hidden ${
+        className={`absolute inset-x-0 top-full flex max-h-[calc(100dvh-4.25rem)] flex-col overflow-y-auto overscroll-contain border-b border-stone-200/70 bg-paper px-6 pt-2 pb-5 shadow-lg shadow-stone-900/5 transition-[opacity,translate,visibility] ease-out motion-reduce:translate-y-0 sm:hidden ${
           open ? 'visible translate-y-0 opacity-100 duration-200' : 'invisible -translate-y-2 opacity-0 duration-150'
         }`}
       >

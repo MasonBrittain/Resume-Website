@@ -16,7 +16,7 @@ const Footer = () => (
           href="https://github.com/MasonBrittain/Resume-Website"
           target="_blank"
           rel="noreferrer"
-          className="font-medium text-ink underline decoration-brand-orange/50 underline-offset-4 transition-colors hover:text-brand-orange-deep hover:decoration-brand-orange-deep"
+          className="inline-block py-1 font-medium text-ink underline decoration-brand-orange/50 underline-offset-4 transition-colors hover:text-brand-orange-deep hover:decoration-brand-orange-deep"
         >
           Source
         </a>

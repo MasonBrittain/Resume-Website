@@ -17,7 +17,7 @@ const Bullet = ({ text }) => {
 
 const Bullets = ({ items, className = '' }) => (
   <ul
-    className={`max-w-[62ch] list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-ink-soft marker:text-brand-orange ${className}`}
+    className={`max-w-[62ch] list-disc space-y-2 pl-5 text-base leading-relaxed text-ink-soft marker:text-brand-orange ${className}`}
   >
     {items.map((bullet, i) => (
       <Bullet key={i} text={bullet} />

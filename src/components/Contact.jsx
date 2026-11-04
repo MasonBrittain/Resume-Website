@@ -4,6 +4,10 @@ import resume from '../data/resume';
 
 const { personalInfo } = resume;
 
+// On very narrow screens the address may need two lines; offer a break right
+// after the "@" so it splits as "name@" / "domain" instead of mid-word.
+const [emailUser, emailDomain] = personalInfo.email.split('@');
+
 const ghostButton =
   'press inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 font-semibold text-white hover:border-white/40 hover:bg-white/10';
 
@@ -59,9 +63,13 @@ const Contact = () => {
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
             <a
               href={`mailto:${personalInfo.email}`}
-              className="press gradient-bg inline-flex max-w-full items-center gap-2 rounded-full px-6 py-3 font-semibold break-all text-white shadow-md shadow-black/30 hover:brightness-110"
+              className="press gradient-bg inline-flex max-w-full items-center gap-2 rounded-full px-6 py-3 font-semibold text-white shadow-md shadow-black/30 hover:brightness-110"
             >
-              <Mail size={18} aria-hidden="true" className="shrink-0" /> {personalInfo.email}
+              <Mail size={18} aria-hidden="true" className="shrink-0" />
+              <span className="min-w-0 wrap-anywhere">
+                {emailUser}@<wbr />
+                {emailDomain}
+              </span>
             </a>
             <button type="button" onClick={copyEmail} className={ghostButton}>
               {copyState === 'copied' ? (

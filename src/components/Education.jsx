@@ -19,9 +19,9 @@ const Education = () => (
           <h3 className="mt-5 font-display text-lg font-bold text-ink">
             {edu.institution}
           </h3>
-          <p className="mt-1 text-sm font-medium text-ink-soft">{edu.degree}</p>
+          <p className="mt-1 font-medium text-ink-soft">{edu.degree}</p>
           {edu.secondDegree && (
-            <p className="text-sm font-medium text-ink-soft">{edu.secondDegree}</p>
+            <p className="font-medium text-ink-soft">{edu.secondDegree}</p>
           )}
         </Card>
       ))}

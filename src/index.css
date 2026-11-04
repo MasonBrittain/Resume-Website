@@ -43,6 +43,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* Keep anchor jumps and keyboard focus clear of the fixed header */
+  scroll-padding-top: 5rem;
 }
 
 body {
@@ -73,6 +75,18 @@ li {
   text-wrap: pretty;
 }
 
+/* Tailwind v4 gives buttons the default arrow; clickable things get a pointer */
+button:not(:disabled),
+[role="button"]:not(:disabled) {
+  cursor: pointer;
+}
+
+/* No double-tap-to-zoom delay on taps */
+a,
+button {
+  touch-action: manipulation;
+}
+
 ::selection {
   background: rgb(225 29 72 / 0.22);
 }
@@ -81,11 +95,6 @@ li {
 :focus-visible {
   outline: 2px solid var(--color-brand-orange);
   outline-offset: 3px;
-}
-
-/* Sticky-nav offset for anchor jumps */
-section[id] {
-  scroll-margin-top: 5rem;
 }
 
 /* Gradient type, reserved for the hero name */

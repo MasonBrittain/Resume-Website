@@ -39,7 +39,7 @@ const ProjectCard = ({ project, wide }) => (
       {project.name}
     </h3>
 
-    <p className="mt-2 max-w-[62ch] flex-1 text-sm leading-relaxed text-ink-soft">
+    <p className="mt-2 max-w-[62ch] flex-1 text-base leading-relaxed text-ink-soft">
       {project.description}
     </p>
 
